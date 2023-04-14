@@ -1,0 +1,50 @@
+
+{% extends 'si_base.html' %}
+
+{% block si_content %}
+
+<script>
+    // Make an HTTP request to the Django backend API endpoint
+    fetch('/sys_info/api/sys_info/')
+    .then(response => response.json())
+    .then(data => {
+
+        const apiDataList = document.getElementById('api-sys-info');
+        Object.keys(data[0]).forEach(key => {
+
+            if (['hostname'].indexOf(key) > -1) {
+                const listItem = document.createElement('p');
+                listItem.textContent = `${key}: ${data[0][key]}`;
+                apiDataList.appendChild(listItem);
+            }
+
+            if (key == 'localIpV4') {
+                const listItem = document.createElement('p');
+                listItem.textContent = `${key}: `;
+                apiDataList.appendChild(listItem);
+
+                const localIpV4 = data[0][key];
+                Object.keys(localIpV4).forEach(ipItem => {
+                    const ipListItem = document.createElement('li');
+                    ipListItem.textContent = `${ipItem}: ${localIpV4[ipItem]}`;
+                    apiDataList.appendChild(ipListItem);
+                });
+
+            }
+
+            if (key == 'platform') {
+                const listItem = document.createElement('p');
+                listItem.textContent = `${key}: ${data[0][key]['platform']}`;
+                apiDataList.appendChild(listItem);
+            }
+
+        });
+    })
+    .catch(error => console.error(error));
+</script>
+
+
+<div id="api-sys-info">
+</div>
+
+{% endblock %}
