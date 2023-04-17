@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import SysInfo
 
 
-class SysInfoSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = SysInfo
-        fields = '__all__'
+class SysInfoSerializer(serializers.Serializer):
+    hostname = serializers.CharField()
+    hostByHostname = serializers.CharField()
+    hostByAddress = serializers.ListField()
+    localIpV4 = serializers.JSONField()
+    platform = serializers.JSONField()

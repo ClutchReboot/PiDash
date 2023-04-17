@@ -10,8 +10,9 @@ def get_private_ips():
     for interface in interfaces:
 
         ipv4_info = netifaces.ifaddresses(interface).get(2)
-        ipv4_addr = ipv4_info[0].get('addr')
-        local_ipv4[interface] = ipv4_addr
+        if ipv4_info:
+            ipv4_addr = ipv4_info[0].get('addr')
+            local_ipv4[interface] = ipv4_addr
 
     return local_ipv4
 

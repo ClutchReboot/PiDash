@@ -1,0 +1,8 @@
+asgiref==3.6.0
+Django==4.2
+django-environ==0.10.0
+django-require-login==1.1.2
+djangorestframework==3.14.0
+netifaces==0.11.0
+pytz==2023.3
+sqlparse==0.4.3
