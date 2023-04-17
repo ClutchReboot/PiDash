@@ -1,4 +1,6 @@
 # PiDash
+This project was created to make navigating tiny Raspberry Pi easier.
+The idea is to automate minor to advanced tasks with the click of a button using Django as a web app.
 
 ## Setup
 Currently, PiDash is just a typical Django application.
