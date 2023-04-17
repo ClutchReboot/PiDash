@@ -17,7 +17,7 @@ def get_private_ips():
     return local_ipv4
 
 
-def os_specs():
+def get_sys_info():
     hostname = socket.gethostname()
 
     return {
