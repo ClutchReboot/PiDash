@@ -5,6 +5,7 @@ The idea is to automate minor to advanced tasks with the click of a button using
 ## Setup
 Currently, PiDash is just a typical Django application.
 Because of this the setup is a pretty standard for Django.
+
 ```bash
 # Clone the repo
 git clone git@github.com:ClutchReboot/PiDash.git
@@ -35,13 +36,10 @@ from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
 
-Finally, you'll start create the Django DB for users and run the server.
+A custom command `setup` has been created to make the process easier.
+During this process, Django's secret key will be generated when the `.env` file is created.
+Towards the end, users will be prompted to fill out user information for the django admin account.
 ```bash
 
-./manage.py makemigrations && ./manage.py migrate
-./manaeg.py createsuperuser
-# Enter your user and password when prompted.
-
-# Run the server
-./manage.py runserver
+python3 manage.py setup
 ```

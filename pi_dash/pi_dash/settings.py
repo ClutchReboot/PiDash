@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "pi_dash",  # Added to utilize management commands.
     "sys_info"
 ]
 
